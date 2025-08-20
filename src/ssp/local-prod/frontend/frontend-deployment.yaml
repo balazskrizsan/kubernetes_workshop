@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ssp-frontend
+  namespace: ssp-local-prod
+  labels:
+    app: ssp-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: ssp-frontend
+  template:
+    metadata:
+      labels:
+        app: ssp-frontend
+        service: ssp-frontend
+    spec:
+      containers:
+        - name: ssp-frontend
+          image: kbalazsworks/smart_scrum_poker_frontend:prod_commit_sha_short_9448a75
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              protocol: TCP

@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ssp-frontend
+  namespace: ssp-local-prod
+  labels:
+    app: ssp-frontend
+    service: ssp-frontend-service
+spec:
+  #sessionAffinity: ClientIP/None
+  #sessionAffinityConfig:
+  #  clientIP:
+  #    timeoutSeconds: 10800
+  type: LoadBalancer # NodePort / ClusterIP / LoadBalancer
+  selector:
+    app: ssp-frontend
+    service: ssp-frontend
+  ports:
+    - name: "http"
+      protocol: TCP
+      port: 3002
+      targetPort: 80
