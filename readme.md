@@ -2,7 +2,7 @@
 
 ## Steps
 
-### 1.
+### 1. [Stop 1 code on GitHub](https://github.com/balazskrizsan/kubernetes_workshop/tree/504d315fd0c671bba74ca3a30539feecb1e656d3)
 - create namespace:
   - ```kubectl create namespace ssp-local-prod```
 - create frontend deployment
